@@ -216,9 +216,10 @@ public class Enemy : MonoBehaviour
         Instantiate(item, pos, Quaternion.identity);
 
         player.GetComponent<Player>().curex += 30f;
-
-        //½Ã¿Â!!
-        questPro.enemyCount++;
+        if (questPro.condition == "enemy")
+        {
+            questPro.enemyCount++;
+        }
     }
     IEnumerator PoolingEnemy()
     {

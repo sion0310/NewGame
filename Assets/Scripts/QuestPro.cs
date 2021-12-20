@@ -10,23 +10,20 @@ public class QuestPro : MonoBehaviour
     public bool isAchieved;
 
     public Inventory inven;
-    public Slot slot;
+    //public Slot slot;
     public Item item;
 
     public int enemyCount = 0;
 
     public string condition;
 
-    private void Start()
-    {
-        slot.useItem_pro = UseItemPro;
-    }
+    //private void Start()
+    //{
+    //    slot.useItem_pro = UseItemPro;
+    //}
 
     private void Update()
     {
-
-
-
         switch (condition)
         {
             case "item":
@@ -42,12 +39,12 @@ public class QuestPro : MonoBehaviour
                 break;
         }
 
-
         if (isAchieved)
         {
             questAchieve?.Invoke(isAchieved);
         }
     }
+
     public void AchievedQuest()
     {
         isAchieved = true;
@@ -60,6 +57,7 @@ public class QuestPro : MonoBehaviour
             isAchieved = true;
             enemyCount = 0;
         }
+        
     }
 
     public void ItemCheck()
@@ -68,17 +66,17 @@ public class QuestPro : MonoBehaviour
         {
             isAchieved = true;
         }
+        
     }
 
-    public void aa()
+    public void AddItem()
     {
         inven.addItem(item, 1);
     }
 
-    void UseItemPro()
+    public void UseItemPro()
     {
         isAchieved = true;
-        Debug.Log("aa");
     }
 
 }

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour {
 
-    public delegate void UseItemPro();
-    public UseItemPro useItem_pro = null;
+    //public delegate void UseItemPro();
+    //public UseItemPro useItem_pro = null;
 
     public bool isEmpty;
 
@@ -72,7 +72,10 @@ public class Slot : MonoBehaviour {
     IEnumerator Quest(int _value)
     {
         //퀘스트 완료 조건 달성
-        useItem_pro?.Invoke();
+        //useItem_pro?.Invoke();
+        //나도 이러고싶진않았어... 
+        GameObject quest = GameObject.Find("DialogueData");
+        quest.GetComponent<QuestPro>().UseItemPro();
         yield return 0;
 
     }

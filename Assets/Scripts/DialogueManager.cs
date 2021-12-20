@@ -124,23 +124,20 @@ public class DialogueManager : MonoBehaviour
                 //완료npc상태 바꿔주고
                 npcMg.DoneQuest();
                 //다음 퀘스트로 넘어가고
-                questIndex++;
+                questPro.condition = "";
                 questPro.isAchieved = false;
+                questIndex++;
                 //퀘스트 정보들 다시 바꿔준다.
                 SetQuestInfo();
             }
         }
         else
         {
-
-            if (questIndex == 1)
-            {
-
-                questPro.aa();
-                
-            }
-
             npcMg.AcceptQuest();
+            if (values._condition == "add")
+            {
+                questPro.AddItem();
+            }
             if (values._condition == "enemy")
             {
                 questPro.enemyCount = 0;
@@ -152,6 +149,7 @@ public class DialogueManager : MonoBehaviour
             questPro.condition = values._condition.ToString();
         }
     }
+
 
 
 }
