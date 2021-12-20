@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour {
 
+    public delegate void UseItemPro();
+    public UseItemPro useItem_pro = null;
+
     public bool isEmpty;
 
     public Item item;
@@ -55,6 +58,7 @@ public class Slot : MonoBehaviour {
     IEnumerator HealHp(int _value)
     {
         Player.getInstance.HpFunc(_value);
+
         yield return 0;
     }
 
@@ -68,6 +72,7 @@ public class Slot : MonoBehaviour {
     IEnumerator Quest(int _value)
     {
         //퀘스트 완료 조건 달성
+        useItem_pro?.Invoke();
         yield return 0;
 
     }

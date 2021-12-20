@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
 
     string playerName = "시온";   //나중에 인풋필드로 입력받은 값을 넣어준다
 
+    
     DialogueData.Values values;
 
     public int questIndex;
@@ -134,8 +135,9 @@ public class DialogueManager : MonoBehaviour
 
             if (questIndex == 1)
             {
-                //일단 그런 함수 자체를 안만들어놔서 여기다가 함수 만들면 되긴 된당 ㅋㅋ
-                //정리는 내가 할테니까 여기 뭔가 적으면 됨
+
+                questPro.aa();
+                
             }
 
             npcMg.AcceptQuest();

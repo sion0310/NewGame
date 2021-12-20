@@ -10,10 +10,17 @@ public class QuestPro : MonoBehaviour
     public bool isAchieved;
 
     public Inventory inven;
+    public Slot slot;
+    public Item item;
 
     public int enemyCount = 0;
 
     public string condition;
+
+    private void Start()
+    {
+        slot.useItem_pro = UseItemPro;
+    }
 
     private void Update()
     {
@@ -62,4 +69,16 @@ public class QuestPro : MonoBehaviour
             isAchieved = true;
         }
     }
+
+    public void aa()
+    {
+        inven.addItem(item, 1);
+    }
+
+    void UseItemPro()
+    {
+        isAchieved = true;
+        Debug.Log("aa");
+    }
+
 }
