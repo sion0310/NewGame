@@ -23,7 +23,7 @@ public class InteractionCtrl : MonoBehaviour
     void Update()
     {
         CheckObject();      //레이로 오브젝트체크
-        if(dis<=2f)
+        if(dis<=3f)
             InteractProcess();  //좌클릭 함수
     }
     
