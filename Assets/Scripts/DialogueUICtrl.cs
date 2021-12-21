@@ -20,11 +20,24 @@ public class DialogueUICtrl : MonoBehaviour
     [SerializeField] Text txt_questExplan;
     [SerializeField] GameObject questDone;
     [SerializeField] Text txt_questAsk;
-    
+
+    [Header("Mini Quest UI")]
+    [SerializeField] Text txt_miniName;
+    [SerializeField] Text txt_miniExplan;
+
     [SerializeField] Text txt_playerName;
+    [SerializeField] GameObject storeUI;
 
     bool isDialogue = false;    //대화창이 열리고 닫힘을 표시
     bool getQuest = false;
+    public bool isStoreOpen = false;
+    
+
+    public void MiniQUI(string _Qname,string _Qexplan)
+    {
+        txt_miniName.text = _Qname;
+        txt_miniExplan.text = _Qexplan;
+    }
 
     public void OpenDialBar(string dial,string npcName)
     {
@@ -62,6 +75,7 @@ public class DialogueUICtrl : MonoBehaviour
         //isDialogue(대화중인지 아닌지)에따라 대화창을 켜고 끈다.
         SetDialUI(isDialogue);
         SetQuestUI(getQuest);
+        SetStoreUI(isStoreOpen);
     }
 
     // 대화창 열기,닫기
@@ -74,6 +88,10 @@ public class DialogueUICtrl : MonoBehaviour
     {
         questUI.SetActive(flag);
     }
+    void SetStoreUI(bool flag)
+    {
+        storeUI.SetActive(flag);
+    }
 
     public void ExitBtn()
     {
@@ -82,6 +100,7 @@ public class DialogueUICtrl : MonoBehaviour
         //대화중이 아님을 표시하고
         isDialogue = false;
         getQuest = false;
+        isStoreOpen = false;
         
     }
 
@@ -90,6 +109,7 @@ public class DialogueUICtrl : MonoBehaviour
         accept_pro?.Invoke();
         getQuest = false;
         isDialogue = false;
+        isStoreOpen = false;
     }
     
     public void setPlayerName(string name)

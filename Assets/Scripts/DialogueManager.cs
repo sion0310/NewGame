@@ -68,6 +68,10 @@ public class DialogueManager : MonoBehaviour
         string dialogue = GetDialogue(npcNum, header).Replace("ㅇㅇ", playerName);
         //Ui에 띄워준다.
         dialUI.OpenDialBar(dialogue, npcName);
+        if (npcNum == 4)
+        {
+            dialUI.isStoreOpen = true;
+        }
 
     }
 
@@ -120,6 +124,7 @@ public class DialogueManager : MonoBehaviour
                 //다음 퀘스트로 넘어가고
                 questIndex++;
                 questPro.isAchieved = false;
+                dialUI.MiniQUI("", "");
             }
             else
             {
@@ -131,6 +136,7 @@ public class DialogueManager : MonoBehaviour
                 questIndex++;
                 //퀘스트 정보들 다시 바꿔준다.
                 SetQuestInfo();
+                dialUI.MiniQUI("", "");
             }
         }
         else
@@ -149,6 +155,7 @@ public class DialogueManager : MonoBehaviour
                 questPro.isAchieved = true;
             }
             questPro.condition = values._condition.ToString();
+            dialUI.MiniQUI(values._questName, values._questExplan);
         }
     }
 

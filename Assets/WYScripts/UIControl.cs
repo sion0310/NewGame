@@ -18,6 +18,8 @@ public class UIControl : MonoBehaviour {
 
     [SerializeField]
     private GameObject miniMap;
+    
+    
 
     private void Awake()
     {
