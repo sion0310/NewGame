@@ -30,9 +30,9 @@ public class SaveBtn : MonoBehaviour
     {
         DataCtrl.Instance._gameData._questIndex = 0;
 
-        DataCtrl.Instance._gameData.player_x = -13.31f;
-        DataCtrl.Instance._gameData.player_y = 0.044267f;
-        DataCtrl.Instance._gameData.player_z = -17.83143f;
+        DataCtrl.Instance._gameData.player_x = 7.15f;
+        DataCtrl.Instance._gameData.player_y = 0.02f;
+        DataCtrl.Instance._gameData.player_z = -15.49f;
 
         DataCtrl.Instance._gameData.hp = 100;
         DataCtrl.Instance._gameData.curhp = 100;
